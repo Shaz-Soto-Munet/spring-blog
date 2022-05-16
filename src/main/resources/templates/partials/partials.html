@@ -10,7 +10,7 @@
 
     <!--  NavBar  -->
     <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="localhost:8080/posts">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,23 +40,24 @@
     </nav>
 
     <!--  Header  -->
-    <div th:fragment="header">
+    <div class="text-center" th:fragment="header">
         <h1>Welcome to the exercise!</h1>
+        <h5>(This is a header) 😎</h5>
     </div>
 
     <!-- Footer  -->
 
     <div th:fragment="footer" class="card text-center">
         <div class="card-header">
-            Featured
+            ⌐■-■
         </div>
         <div class="card-body">
-            <h5 class="card-title">Footer</h5>
-            <p class="card-text">This is the greatest application in history, and by extention this is the greatest footer in history.</p>
+            <h5 class="card-title">This is a footer</h5>
+            <p class="card-text">This is the greatest application in history,<br> and by extension this is the greatest footer in history.</p>
             <a href="#" class="btn btn-primary">Return to Top</a>
         </div>
         <div class="card-footer text-muted">
-            2 days ago
+            (つ ͡ꈍ ͜ʖ̫ ͡ꈍ )
         </div>
     </div>
 

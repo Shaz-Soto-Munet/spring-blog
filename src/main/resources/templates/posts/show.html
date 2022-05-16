@@ -7,7 +7,7 @@
 <!--    Header-->
 <div th:replace="partials/partials.html :: header"></div>
 
-<h2>Post <span th:text="${id}"></span>:</h2>
+<h2 class="text-center">Post <span th:text="${id}"></span>:</h2>
 <div th:each="post : ${post}">
     <p th:text="${post.title}"></p>
     <p th:text="${post.body}"></p>
