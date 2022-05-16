@@ -1,8 +1,13 @@
 package com.codeup.springblog.controllers;
 
 
+import com.codeup.springblog.model.Post;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/posts")
@@ -10,15 +15,27 @@ public class PostController {
 
 
     @GetMapping()
-    @ResponseBody
-    public String index(){
-        return "This is the posts index page";
+    public String index(Model model){
+        ArrayList<Post> posts = new ArrayList<>();
+        Post post = new Post("Hello World", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        Post post2 = new Post("Hello World... again!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+
+        posts.add(post);
+        posts.add(post2);
+
+        model.addAttribute("posts", posts);
+
+        return "posts/index";
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
-    public String postByID(@PathVariable int id){
-        return "This page displays post with id: " + id;
+    public String postByID(@PathVariable int id, Model model){
+        Post post = new Post("Hello World, Id: " + id, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+
+        model.addAttribute("post", post);
+        model.addAttribute("id", id);
+
+        return "posts/show";
     }
 
     @RequestMapping(path = "/create", method = RequestMethod.GET)

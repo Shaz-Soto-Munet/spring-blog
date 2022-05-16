@@ -1,18 +1,16 @@
 package com.codeup.springblog.controllers;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/")
-public class HomeController {
+@RequestMapping("/partials")
+public class PartialsController {
 
     @GetMapping
-    @ResponseBody
-    public String landingPage(){
-        return "This is the landing page!";
+    public String showPartialsTest(){
+        return "views-lecture/partials-test";
     }
+
 }

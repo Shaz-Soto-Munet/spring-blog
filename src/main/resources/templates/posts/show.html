@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="partials/partials.html :: head (Index)"></head>
+<body>
+<!--    Nav Bar-->
+<nav th:replace="partials/partials.html :: navbar"></nav>
+<!--    Header-->
+<div th:replace="partials/partials.html :: header"></div>
+
+<h2>Post <span th:text="${id}"></span>:</h2>
+<div th:each="post : ${post}">
+    <p th:text="${post.title}"></p>
+    <p th:text="${post.body}"></p>
+</div>
+
+
+
+
+<!--Footer-->
+<p th:replace="partials/partials.html :: footer"></p>
+<!--Bootstrap JS script-->
+<script th:replace="partials/partials.html :: bs-js"></script>
+
+</body>
+</html>
