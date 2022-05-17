@@ -1,12 +1,24 @@
 package com.codeup.springblog.models;
 
-public class Coffee {
+import javax.persistence.*;
 
+@Entity
+@Table(name="coffees")
+public class Coffee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(nullable = false, length = 50)
     private String roast;
+
+    @Column(nullable = false, length = 225)
     private String origin;
+
+    @Column(nullable = false, length = 100)
     private String brand;
 
-
+// Constructors
     public Coffee() {
     }
 
@@ -15,6 +27,13 @@ public class Coffee {
         this.brand = brand;
     }
 
+    public Coffee(String roast, String origin, String brand) {
+        this.roast = roast;
+        this.origin = origin;
+        this.brand = brand;
+    }
+
+// Getters & Setters
     public String getBrand() {
         return brand;
     }
