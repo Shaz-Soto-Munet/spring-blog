@@ -8,10 +8,11 @@
     <div th:replace="partials/partials.html :: header"></div>
 
     <!--Posts-->
-    <h2 class="text-center">All posts:</h2>
-    <div th:each="post : ${posts}">
-        <h4 class="text-center">Title: <span th:text="${post.title}"></span></h4>
+    <h2 class="m-4 text-center">All posts:</h2>
+    <div class="m-2 text-center" th:each="post : ${posts}">
+        <h4 class="text-center" th:text="${post.title}"></h4>
         <p th:text="${post.body}"></p>
+        <p th:text="${post.user}"></p>
     </div>
 
     <!--Footer-->

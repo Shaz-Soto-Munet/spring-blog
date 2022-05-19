@@ -11,6 +11,7 @@
 <div th:each="post : ${post}">
     <p th:text="${post.title}"></p>
     <p th:text="${post.body}"></p>
+    <p th:if="${post.user}">User email: <span th:text="${post.user.email}"></span></p>
 </div>
 
 
