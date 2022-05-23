@@ -13,6 +13,9 @@
         <h4 class="text-center" th:text="${post.title}"></h4>
         <p th:text="${post.body}"></p>
         <p th:text="${post.user}"></p>
+        <form th:method="post" th:action="@{/posts/delete}">
+            <button type="submit" name="id" th:value="${post.id}">Delete</button>
+        </form>
     </div>
 
     <!--Footer-->

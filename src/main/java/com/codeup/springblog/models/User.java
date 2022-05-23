@@ -24,6 +24,10 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
 
+
+
+
+//    constructors
     public User(){}
 
     public User(String username, String email, String password) {
@@ -32,6 +36,12 @@ public class User {
         this.password = password;
     }
 
+
+
+
+
+
+//    getters & setters
     public long getId() {
         return id;
     }

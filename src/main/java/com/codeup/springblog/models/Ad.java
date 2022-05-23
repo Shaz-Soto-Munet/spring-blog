@@ -19,6 +19,12 @@ public class Ad {
     @Column(nullable = false, length = 500)
     private String photo;
 
+
+
+
+
+
+//    constructors
     public Ad() {
     }
 
@@ -29,6 +35,10 @@ public class Ad {
         this.category = category;
         this.photo = photo;
     }
+
+
+
+//    getters & setters
 
     public long getId() {
         return id;

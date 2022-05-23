@@ -7,6 +7,7 @@ import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.AdsRepository;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import com.codeup.springblog.services.StringService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ public class PostController {
 
     private final PostRepository postsDao;
     private final UserRepository usersDao;
+    private StringService stringService;
 
     public PostController(PostRepository postDao, UserRepository usersDao){
         this.postsDao = postDao;
@@ -82,5 +84,30 @@ public class PostController {
     }
 
 
+    @GetMapping("/update/{id}")
+    public String showUpdatePost(
+            @PathVariable long id,
+            Model model
+    ){
+        model.addAttribute("post", postsDao.getById(id));
+        return "/posts/update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String doUpdatePost(
+            @ModelAttribute Post post
+    ){
+
+        postsDao.save(post);
+        return "redirect:/posts/index";
+    }
+
+    @PostMapping("/delete")
+    public String deletePost(
+            @RequestParam(name="id") long id
+    ){
+        postsDao.deleteById(id);
+        return "redirect:/posts/index";
+    }
 
 }
